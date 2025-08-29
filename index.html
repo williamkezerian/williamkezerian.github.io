@@ -3,58 +3,169 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>William J. Kezerian — Academic Website</title>
+  <title>William J. Kezerian</title>
+  <meta name="description" content="Computational linguistics • Creole linguistics • NLP for low-resource languages" />
   <style>
-    body { max-width: 750px; margin: 2rem auto; font: 16px/1.6 system-ui; }
-    h1,h2 { line-height: 1.3; }
-    nav a { margin-right: 1rem; }
-    footer { margin-top: 3rem; font-size: 0.9em; opacity: 0.7; }
+    :root{
+      --ink:#111827; --muted:#6b7280; --link:#1d4ed8;
+      --line:#e5e7eb; --bg:#ffffff; --max:980px; --pad:24px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font:16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+    a{color:var(--link);text-decoration:underline}
+    a.no-underline{text-decoration:none}
+    h1,h2,h3{line-height:1.25;margin:0 0 .6rem}
+    h1{font-size:2rem}
+    h2{font-size:1.35rem;margin-top:2.25rem;border-bottom:1px solid var(--line);padding-bottom:.35rem}
+    p,li{margin:.6rem 0}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+    /* header/nav like pristinakoon.com: name left, simple nav right */
+    header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:saturate(150%) blur(6px);z-index:10}
+    .top{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{font-weight:800}
+    nav a{margin-left:18px;color:var(--ink);text-decoration:none}
+    nav a:hover{text-decoration:underline}
+    /* hero / intro */
+    .hero{display:flex;gap:28px;align-items:center;padding:28px 0}
+    .headshot{width:110px;height:110px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
+    .tagline{color:var(--muted)}
+    /* section blocks */
+    section{padding-top:4px}
+    .list-clean{padding-left:1.15rem}
+    .meta{color:var(--muted)}
+    footer{border-top:1px solid var(--line);margin-top:32px;padding:18px 0;color:var(--muted)}
+    /* two-column text like the example for long sections on wide screens */
+    .cols{columns:2 360px;column-gap:36px}
+    /* mobile tweaks */
+    @media (max-width: 640px){
+      .hero{flex-direction:column;align-items:flex-start}
+      .headshot{width:90px;height:90px}
+      nav{display:none} /* keep the header minimal on mobile like many academic sites */
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>William J. Kezerian</h1>
-    <p>Computational Linguistics · Creole Studies · NLP for Low-Resource Languages</p>
-    <nav>
-      <a href="#research">Research</a>
-      <a href="#publications">Publications</a>
-      <a href="#teaching">Teaching</a>
-      <a href="#cv">CV</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="wrap top">
+      <div class="brand">William J. Kezerian</div>
+      <nav aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#cv">CV</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section id="research">
-    <h2>Research</h2>
-    <p>I study computational linguistics and Guadeloupean Creole (GC), focusing on ASR, G2P, and documentation.</p>
-  </section>
+  <main class="wrap">
+    <!-- Intro/hero -->
+    <section id="about" aria-labelledby="intro">
+      <div class="hero">
+        <img class="headshot" src="assets/img/headshot.jpg" alt="Photo of William Kezerian" />
+        <div>
+          <h1 id="intro">Hi, I’m Will.</h1>
+          <p class="tagline">
+            MA candidate in Linguistic Studies at Syracuse University (GPA 4.0).
+            I work on <strong>computational linguistics</strong> and <strong>French-based Creoles</strong>, with a focus on
+            <strong>Guadeloupean Creole (GC)</strong>, speech technology, and syntax.
+          </p>
+          <p class="meta">
+            Thesis advisor: Jaklin Kornfilt · NSF-IRES Research Fellow · Fieldwork in Guadeloupe
+          </p>
+        </div>
+      </div>
+      <div class="cols">
+        <p>
+          My thesis develops an <strong>ASR pipeline for Guadeloupean Creole</strong> to support documentation and
+          quantitative analysis of phenomena like focus/fronting and complementation.
+          I’m broadly interested in representation learning for speech/text in low-resource settings
+          and in building tools that make bilingual education and documentation more practical.
+        </p>
+        <p>
+          Recent work spans <em>G2P</em> modeling, PER/WER evaluation, and experiments with BERT/LLMs for
+          classification and structure discovery. I also publish on morphology and data quality in
+          shared tasks.
+        </p>
+      </div>
+    </section>
 
-  <section id="publications">
-    <h2>Publications</h2>
-    <ul>
-      <li>Kezerian, W. (2025). Title. <em>Conference Proceedings</em>.</li>
-    </ul>
-  </section>
+    <!-- Research -->
+    <section id="research">
+      <h2>Research</h2>
+      <ul class="list-clean">
+        <li><strong>ASR & G2P for Guadeloupean Creole</strong> — Field-collected speech → transcripts; evaluation with PER/WER.</li>
+        <li><strong>Focus & Fronting in GC</strong> — Complementation, left-dislocation, and information structure from elicitation + corpus data.</li>
+        <li><strong>Low-resource NLP</strong> — Classification and documentation workflows using BERT/LLMs; data curation and evaluation.</li>
+      </ul>
+    </section>
 
-  <section id="teaching">
-    <h2>Teaching</h2>
-    <ul>
-      <li>American Culture and English Language · Syracuse University · 2024</li>
-    </ul>
-  </section>
+    <!-- Selected publications & talks kept on the homepage -->
+    <section id="publications">
+      <h2>Selected Publications & Presentations</h2>
 
-  <section id="cv">
-    <h2>CV</h2>
-    <p><a href="cv.pdf">Download my CV (PDF)</a></p>
-  </section>
+      <h3>Peer-reviewed</h3>
+      <ul class="list-clean">
+        <li>
+          Kezerian, W., Wyner, L. A., Ansari, S., & Yu, K. M. (2024).
+          <em>Ye Olde French: Effect of Old and Middle French on SIGMORPHON-UniMorph Shared Task Data.</em>
+          In <em>Proceedings of SIGMORPHON</em>, ACL 2024, Mexico City.
+          <a href="https://aclanthology.org/2024.sigmorphon-1.5/" rel="noopener">Link</a>
+        </li>
+      </ul>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: youraddress@university.edu</p>
-    <p><a href="https://scholar.google.com/">Google Scholar</a> · <a href="https://github.com/wkezer">GitHub</a></p>
-  </section>
+      <h3>Conference (upcoming)</h3>
+      <ul class="list-clean">
+        <li><em>The Role of kè in Guadeloupean Creole Complementation</em>. Syntax of the World’s Languages X, Potsdam, 2025.</li>
+        <li><em>Focus and Fronting in Guadeloupean Creole</em>. SLE 2025 Workshop on Focus Typology, Bordeaux, 2025.</li>
+      </ul>
 
-  <footer>© <span id="year"></span> William J. Kezerian</footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+      <h3>Invited</h3>
+      <ul class="list-clean">
+        <li><em>Creole for the Classroom: NLP & documentation for native-language education</em>. VII Summer School on Language Policy, Siena, 2025.</li>
+        <li><em>NLP in Language Documentation: GC focus and fronting</em>. Syracuse University Research Fest, 2025.</li>
+      </ul>
+
+      <p class="meta">See CV for full list of publications, talks, and posters.</p>
+    </section>
+
+    <!-- Teaching -->
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <ul class="list-clean">
+        <li>Instructor of Record — FREN 201, Syracuse University (2024).</li>
+        <li>ESL Instructor — Advanced & Intermediate American Culture and English Language, UMass Amherst (2022–24).</li>
+        <li>NSF-IRES Fellow and research mentor for GC fieldwork (current).</li>
+      </ul>
+    </section>
+
+    <!-- CV -->
+    <section id="cv">
+      <h2>CV</h2>
+      <p>
+        Download my full CV (PDF): <a class="no-underline" href="cv.pdf">cv.pdf</a>
+        <span class="meta"> · last updated 2025</span>
+      </p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:you@university.edu">you@university.edu</a></p>
+      <p>
+        <a href="https://scholar.google.com/" rel="noopener">Google Scholar</a> ·
+        <a href="https://github.com/wkezer" rel="noopener">GitHub</a> ·
+        <a href="https://linkedin.com/in/williamkezerian" rel="noopener">LinkedIn</a>
+      </p>
+    </section>
+
+    <footer>
+      © <span id="y"></span> William J. Kezerian
+    </footer>
+  </main>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
