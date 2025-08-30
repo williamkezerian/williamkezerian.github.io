@@ -20,28 +20,42 @@
     h2{font-size:1.35rem;margin-top:2.25rem;border-bottom:1px solid var(--line);padding-bottom:.35rem}
     p,li{margin:.6rem 0}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
-    /* header/nav like pristinakoon.com: name left, simple nav right */
+
+    /* header/nav */
     header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:saturate(150%) blur(6px);z-index:10}
     .top{display:flex;align-items:center;justify-content:space-between;height:64px}
     .brand{font-weight:800}
     nav a{margin-left:18px;color:var(--ink);text-decoration:none}
     nav a:hover{text-decoration:underline}
-    /* hero / intro */
-    .hero{display:flex;gap:28px;align-items:center;padding:28px 0}
-    .headshot{width:110px;height:110px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
+
+    /* PROFILE LAYOUT */
+    .profile{display:grid;grid-template-columns:260px 1fr;gap:40px;margin:28px 0 10px}
+    .sidebar{
+      border:1px solid var(--line);border-radius:12px;padding:20px;
+      align-self:start;position:sticky;top:92px;background:#fff;
+      height:fit-content;
+    }
+    .headshot{width:160px;height:160px;border-radius:50%;object-fit:cover;margin:0 auto 16px;border:1px solid var(--line)}
+    .name{font-weight:800;text-align:center;margin:0 0 4px}
+    .role{text-align:center;color:var(--muted);margin:0 0 12px}
+    .meta{list-style:none;padding:0;margin:0;font-size:.95rem;text-align:center}
+    .meta li{margin:8px 0}
+    .intro h1{margin-top:0}
     .tagline{color:var(--muted)}
-    /* section blocks */
+    .cols{columns:2 360px;column-gap:36px}
+
+    /* sections */
     section{padding-top:4px}
     .list-clean{padding-left:1.15rem}
-    .meta{color:var(--muted)}
+    .smallmuted{color:var(--muted);font-size:.95rem}
     footer{border-top:1px solid var(--line);margin-top:32px;padding:18px 0;color:var(--muted)}
-    /* two-column text like the example for long sections on wide screens */
-    .cols{columns:2 360px;column-gap:36px}
-    /* mobile tweaks */
-    @media (max-width: 640px){
-      .hero{flex-direction:column;align-items:flex-start}
-      .headshot{width:90px;height:90px}
-      nav{display:none} /* keep the header minimal on mobile like many academic sites */
+
+    /* mobile */
+    @media (max-width: 900px){
+      .profile{grid-template-columns:1fr}
+      .sidebar{position:static;text-align:center}
+      .cols{columns:1}
+      nav{display:none}
     }
   </style>
 </head>
@@ -53,46 +67,55 @@
         <a href="#about">About</a>
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
-        <a href="#teaching">Teaching</a>
         <a href="#cv">CV</a>
-        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main class="wrap">
-    <!-- Intro/hero -->
+    <!-- ABOUT with LEFT SIDEBAR -->
     <section id="about" aria-labelledby="intro">
-      <div class="hero">
-        <img class="headshot" src="assets/img/headshot.jpg" alt="Photo of William Kezerian" />
-        <div>
-          <h1 id="intro">William Kezerian.</h1>
+      <div class="profile">
+        <aside class="sidebar">
+          <img class="headshot" src="assets/img/headshot.jpg" alt="Photo of William Kezerian" />
+          <h3 class="name">William J. Kezerian</h3>
+          <p class="role">MA Candidate · Linguistic Studies<br>Syracuse University (GPA 4.0)</p>
+          <ul class="meta">
+            <li>📍 France / USA</li>
+            <li>🏫 Syracuse University</li>
+            <li>✉️ <a href="mailto:you@university.edu">you@university.edu</a></li>
+            <li><a href="https://scholar.google.com/" rel="noopener">Google Scholar</a></li>
+            <li><a href="https://github.com/wkezer" rel="noopener">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/williamkezerian" rel="noopener">LinkedIn</a></li>
+            <li><a href="cv.pdf">CV (PDF)</a></li>
+          </ul>
+        </aside>
+
+        <div class="intro">
+          <h1 id="intro">Hi, I’m Will.</h1>
           <p class="tagline">
-            MA candidate in Linguistic Studies at Syracuse University.
             I work on <strong>computational linguistics</strong> and <strong>French-based Creoles</strong>, with a focus on
             <strong>Guadeloupean Creole (GC)</strong>, speech technology, and syntax.
           </p>
-          <p class="meta">
-            Thesis advisor: Jaklin Kornfilt · NSF-IRES Research Fellow · Fieldwork in Guadeloupe
-          </p>
+          <p class="smallmuted">Thesis advisor: Jaklin Kornfilt · NSF-IRES Research Fellow · Fieldwork in Guadeloupe</p>
+
+          <div class="cols">
+            <p>
+              My thesis develops an <strong>ASR pipeline for Guadeloupean Creole</strong> to support documentation and
+              quantitative analysis of phenomena like focus/fronting and complementation.
+              I’m broadly interested in representation learning for speech/text in low-resource settings and in building tools
+              that make bilingual education and documentation more practical.
+            </p>
+            <p>
+              Recent work spans G2P modeling, PER/WER evaluation, and experiments with BERT/LLMs for classification
+              and structure discovery. I also publish on morphology and data quality in shared tasks.
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="cols">
-        <p>
-          My thesis develops an <strong>ASR pipeline for Guadeloupean Creole</strong> to support documentation and
-          quantitative analysis of phenomena like focus/fronting and complementation.
-          I’m broadly interested in representation learning for speech/text in low-resource settings
-          and in building tools that make bilingual education and documentation more practical.
-        </p>
-        <p>
-          Recent work spans <em>G2P</em> modeling, PER/WER evaluation, and experiments with BERT/LLMs for
-          classification and structure discovery. I also publish on morphology and data quality in
-          shared tasks.
-        </p>
       </div>
     </section>
 
-    <!-- Research -->
+    <!-- RESEARCH -->
     <section id="research">
       <h2>Research</h2>
       <ul class="list-clean">
@@ -102,7 +125,7 @@
       </ul>
     </section>
 
-    <!-- Selected publications & talks kept on the homepage -->
+    <!-- SELECTED PUBS & TALKS -->
     <section id="publications">
       <h2>Selected Publications & Presentations</h2>
 
@@ -128,17 +151,7 @@
         <li><em>NLP in Language Documentation: GC focus and fronting</em>. Syracuse University Research Fest, 2025.</li>
       </ul>
 
-      <p class="meta">See CV for full list of publications, talks, and posters.</p>
-    </section>
-
-    <!-- Teaching -->
-    <section id="teaching">
-      <h2>Teaching</h2>
-      <ul class="list-clean">
-        <li>Instructor of Record — FREN 201, Syracuse University (2024).</li>
-        <li>ESL Instructor — Advanced & Intermediate American Culture and English Language, UMass Amherst (2022–24).</li>
-        <li>NSF-IRES Fellow and research mentor for GC fieldwork (current).</li>
-      </ul>
+      <p class="smallmuted">See CV for the complete list of publications, talks, and posters.</p>
     </section>
 
     <!-- CV -->
@@ -146,24 +159,11 @@
       <h2>CV</h2>
       <p>
         Download my full CV (PDF): <a class="no-underline" href="cv.pdf">cv.pdf</a>
-        <span class="meta"> · last updated 2025</span>
+        <span class="smallmuted"> · last updated 2025</span>
       </p>
     </section>
 
-    <!-- Contact -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:you@university.edu">you@university.edu</a></p>
-      <p>
-        <a href="https://scholar.google.com/" rel="noopener">Google Scholar</a> ·
-        <a href="https://github.com/wkezer" rel="noopener">GitHub</a> ·
-        <a href="https://linkedin.com/in/williamkezerian" rel="noopener">LinkedIn</a>
-      </p>
-    </section>
-
-    <footer>
-      © <span id="y"></span> William J. Kezerian
-    </footer>
+    <footer>© <span id="y"></span> William J. Kezerian</footer>
   </main>
 
   <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
