@@ -7,54 +7,54 @@
   <meta name="description" content="Computational linguistics • Creole linguistics • NLP for low-resource languages" />
   <style>
     :root{
-      --ink:#111827; --muted:#6b7280; --link:#1d4ed8;
-      --line:#e5e7eb; --bg:#ffffff; --max:980px; --pad:24px;
+      --ink:#111827; --muted:#4b5563; --link:#2563eb;
+      --line:#e5e7eb; --bg:#ffffff; --max:1100px; --pad:24px;
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
-    body{font:16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
-    a{color:var(--link);text-decoration:underline}
-    a.no-underline{text-decoration:none}
+    body{font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+    a{color:var(--link);text-decoration:none}
+    a:hover{text-decoration:underline}
     h1,h2,h3{line-height:1.25;margin:0 0 .6rem}
     h1{font-size:2rem}
-    h2{font-size:1.35rem;margin-top:2.25rem;border-bottom:1px solid var(--line);padding-bottom:.35rem}
-    p,li{margin:.6rem 0}
+    h2{font-size:1.3rem;margin-top:2.25rem;border-bottom:1px solid var(--line);padding-bottom:.35rem}
+    p,li{margin:.6rem 0;color:var(--muted)}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
 
     /* header/nav */
-    header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:saturate(150%) blur(6px);z-index:10}
+    header{border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:10}
     .top{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .brand{font-weight:800}
-    nav a{margin-left:18px;color:var(--ink);text-decoration:none}
+    .brand{font-weight:700;font-size:1.05rem}
+    nav a{margin-left:22px;color:var(--ink);font-size:.95rem}
     nav a:hover{text-decoration:underline}
 
-    /* PROFILE LAYOUT */
-    .profile{display:grid;grid-template-columns:260px 1fr;gap:40px;margin:28px 0 10px}
+    /* PAGE LAYOUT: sidebar spans whole page */
+    .layout{display:grid;grid-template-columns:280px 1fr;gap:48px;margin:40px 0}
     .sidebar{
-      border:1px solid var(--line);border-radius:12px;padding:20px;
-      align-self:start;position:sticky;top:92px;background:#fff;
-      height:fit-content;
+      border:1px solid var(--line);border-radius:12px;padding:22px;background:#fff;
+      position:sticky;top:92px; /* header (~64px) + space */
+      height:fit-content;max-height:calc(100vh - 110px);overflow:auto;
     }
     .headshot{width:160px;height:160px;border-radius:50%;object-fit:cover;margin:0 auto 16px;border:1px solid var(--line)}
-    .name{font-weight:800;text-align:center;margin:0 0 4px}
-    .role{text-align:center;color:var(--muted);margin:0 0 12px}
-    .meta{list-style:none;padding:0;margin:0;font-size:.95rem;text-align:center}
-    .meta li{margin:8px 0}
-    .intro h1{margin-top:0}
-    .tagline{color:var(--muted)}
-    .cols{columns:2 360px;column-gap:36px}
+    .name{font-weight:700;text-align:center;margin:0 0 4px;font-size:1.1rem}
+    .role{text-align:center;color:var(--muted);margin:0 0 16px;font-size:.95rem}
+    .meta{list-style:none;padding:0;margin:0;font-size:.9rem}
+    .meta li{margin:10px 0;display:flex;align-items:center;gap:8px}
+    .meta a{color:var(--link)}
 
-    /* sections */
-    section{padding-top:4px}
+    .content h1{margin-top:0}
+    .tagline{color:var(--muted)}
+    .cols{max-width:700px}
+
+    section{padding-top:8px}
     .list-clean{padding-left:1.15rem}
-    .smallmuted{color:var(--muted);font-size:.95rem}
-    footer{border-top:1px solid var(--line);margin-top:32px;padding:18px 0;color:var(--muted)}
+    .smallmuted{color:var(--muted);font-size:.9rem}
+    footer{border-top:1px solid var(--line);margin-top:40px;padding:18px 0;color:var(--muted);font-size:.85rem;text-align:center}
 
     /* mobile */
     @media (max-width: 900px){
-      .profile{grid-template-columns:1fr}
-      .sidebar{position:static;text-align:center}
-      .cols{columns:1}
+      .layout{grid-template-columns:1fr}
+      .sidebar{position:static;max-height:none}
       nav{display:none}
     }
   </style>
@@ -72,90 +72,97 @@
     </div>
   </header>
 
-  <main class="wrap">
-    <!-- ABOUT with LEFT SIDEBAR -->
-    <section id="about" aria-labelledby="intro">
-      <div class="profile">
-        <aside class="sidebar">
-          <img class="headshot" src="assets/img/headshot.jpg" alt="Photo of William Kezerian" />
-          <h3 class="name">William J. Kezerian</h3>
-          <p class="role">MA Candidate · Linguistic Studies<br>Syracuse University </p>
-          <ul class="meta">
-            <li>📍 NY</li>
-            <li>🏫 Syracuse University</li>
-            <li>✉️ <a href="wjkezeri@syr.edu">wjkezeri@syr.edu</a></li>
-            <li><a href="https://scholar.google.com/" rel="noopener">Google Scholar</a></li>
-            <li><a href="https://github.com/williamkezerian" rel="noopener">GitHub</a></li>
-            <li><a href="https://linkedin.com/in/williamkezerian" rel="noopener">LinkedIn</a></li>
-            <li><a href="cv.pdf">CV</a></li>
-          </ul>
-        </aside>
+  <main class="wrap layout">
+    <!-- LEFT: sticky sidebar (visible for entire page scroll) -->
+    <aside class="sidebar">
+      <img class="headshot" src="assets/img/headshot.jpg" alt="Photo of William Kezerian" />
+      <h3 class="name">William J. Kezerian</h3>
+      <p class="role">MA Candidate · Linguistic Studies<br>Syracuse University</p>
+      <ul class="meta">
+        <li>📍 NY, USA</li>
+        <li>🏫 Syracuse University</li>
+        <li>✉️ <a href="mailto:wjkezeri@syr.edu">wjkezeri@syr.edu</a></li>
+        <li><a href="https://scholar.google.com/" rel="noopener">Google Scholar</a></li>
+        <li><a href="https://github.com/wkezer" rel="noopener">GitHub</a></li>
+        <li><a href="https://linkedin.com/in/williamkezerian" rel="noopener">LinkedIn</a></li>
+        <li><a href="cv.pdf">CV (PDF)</a></li>
+      </ul>
+    </aside>
 
-        <div class="intro">
-          <h1 id="intro">Hi, I’m Will.</h1>
-          <p class="tagline">
-            I work on <strong>computational linguistics</strong> and <strong>French-based Creoles</strong>, with a focus on
-            <strong>Guadeloupean Creole (GC)</strong>, speech technology, and syntax.
+    <!-- RIGHT: all content sections -->
+    <div class="content">
+      <section id="about" aria-labelledby="intro">
+        <h1 id="intro">Hi, I’m Will.</h1>
+        <p class="tagline">
+          I work on <strong>computational linguistics</strong> and <strong>French-based Creoles</strong>, with a focus on
+          <strong>Guadeloupean Creole (GC)</strong>, speech technology, and syntax.
+        </p>
+        <p class="smallmuted">Thesis advisor: Jaklin Kornfilt · NSF-IRES Research Fellow · Fieldwork in Guadeloupe</p>
+
+        <div class="cols">
+          <p>
+            My thesis develops an <strong>ASR pipeline for Guadeloupean Creole</strong> to support documentation and
+            quantitative analysis of phenomena like focus/fronting and complementation. I’m broadly interested in
+            representation learning for speech/text in low-resource settings and in building tools that make bilingual
+            education and documentation more practical.
           </p>
-          <p class="smallmuted">Thesis advisor: Jaklin Kornfilt · NSF-IRES Research Fellow</p>
-
-          <div class="cols">
-          </div>
+          <p>
+            Recent work spans G2P modeling, PER/WER evaluation, and experiments with BERT/LLMs for classification
+            and structure discovery. I also publish on morphology and data quality in shared tasks.
+          </p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- RESEARCH -->
-    <section id="research">
-      <h2>Research</h2>
-      <ul class="list-clean">
-        <li><strong>ASR & G2P for Guadeloupean Creole</strong> — Field-collected speech → transcripts; evaluation with PER/WER.</li>
-        <li><strong>Focus & Fronting in GC</strong> — Complementation, left-dislocation, and information structure from elicitation + corpus data.</li>
-        <li><strong>Low-resource NLP</strong> — Classification and documentation workflows using BERT/LLMs; data curation and evaluation.</li>
-      </ul>
-    </section>
+      <section id="research">
+        <h2>Research</h2>
+        <ul class="list-clean">
+          <li><strong>ASR & G2P for Guadeloupean Creole</strong> — Field-collected speech → transcripts; evaluation with PER/WER.</li>
+          <li><strong>Focus & Fronting in GC</strong> — Complementation, left-dislocation, and information structure from elicitation + corpus data.</li>
+          <li><strong>Low-resource NLP</strong> — Classification and documentation workflows using BERT/LLMs; data curation and evaluation.</li>
+        </ul>
+      </section>
 
-    <!-- SELECTED PUBS & TALKS -->
-    <section id="publications">
-      <h2>Selected Publications & Presentations</h2>
+      <section id="publications">
+        <h2>Selected Publications & Presentations</h2>
 
-      <h3>Peer-reviewed</h3>
-      <ul class="list-clean">
-        <li>
-          Kezerian, W., Wyner, L. A., Ansari, S., & Yu, K. M. (2024).
-          <em>Ye Olde French: Effect of Old and Middle French on SIGMORPHON-UniMorph Shared Task Data.</em>
-          In <em>Proceedings of SIGMORPHON</em>, ACL 2024, Mexico City.
-          <a href="https://aclanthology.org/2024.sigmorphon-1.5/" rel="noopener">Link</a>
-        </li>
-      </ul>
+        <h3>Peer-reviewed</h3>
+        <ul class="list-clean">
+          <li>
+            Kezerian, W., Wyner, L. A., Ansari, S., & Yu, K. M. (2024).
+            <em>Ye Olde French: Effect of Old and Middle French on SIGMORPHON-UniMorph Shared Task Data.</em>
+            In <em>Proceedings of SIGMORPHON</em>, ACL 2024, Mexico City.
+            <a href="https://aclanthology.org/2024.sigmorphon-1.5/" rel="noopener">Link</a>
+          </li>
+        </ul>
 
-      <h3>Conference (upcoming)</h3>
-      <ul class="list-clean">
-        <li><em>The Role of kè in Guadeloupean Creole Complementation</em>. Syntax of the World’s Languages X, Potsdam, 2025.</li>
-        <li><em>Focus and Fronting in Guadeloupean Creole</em>. SLE 2025 Workshop on Focus Typology, Bordeaux, 2025.</li>
-      </ul>
+        <h3>Conference (upcoming)</h3>
+        <ul class="list-clean">
+          <li><em>The Role of kè in Guadeloupean Creole Complementation</em>. Syntax of the World’s Languages X, Potsdam, 2025.</li>
+          <li><em>Focus and Fronting in Guadeloupean Creole</em>. SLE 2025 Workshop on Focus Typology, Bordeaux, 2025.</li>
+        </ul>
 
-      <h3>Invited</h3>
-      <ul class="list-clean">
-        <li><em>Creole for the Classroom: NLP & documentation for native-language education</em>. VII Summer School on Language Policy, Siena, 2025.</li>
-        <li><em>NLP in Language Documentation: GC focus and fronting</em>. Syracuse University Research Fest, 2025.</li>
-      </ul>
+        <h3>Invited</h3>
+        <ul class="list-clean">
+          <li><em>Creole for the Classroom: NLP & documentation for native-language education</em>. VII Summer School on Language Policy, Siena, 2025.</li>
+          <li><em>NLP in Language Documentation: GC focus and fronting</em>. Syracuse University Research Fest, 2025.</li>
+        </ul>
 
-      <p class="smallmuted">See CV for the complete list of publications, talks, and posters.</p>
-    </section>
+        <p class="smallmuted">See CV for the complete list of publications, talks, and posters.</p>
+      </section>
 
-    <!-- CV -->
-    <section id="cv">
-      <h2>CV</h2>
-      <p>
-        Download my full CV (PDF): <a class="no-underline" href="cv.pdf">cv.pdf</a>
-        <span class="smallmuted"> · last updated 2025</span>
-      </p>
-    </section>
+      <section id="cv">
+        <h2>CV</h2>
+        <p>
+          Download my full CV (PDF): <a href="cv.pdf">cv.pdf</a>
+          <span class="smallmuted"> · last updated 2025</span>
+        </p>
+      </section>
 
-    <footer>© <span id="y"></span> William J. Kezerian</footer>
+      <footer>© <span id="y"></span> William J. Kezerian</footer>
+    </div>
   </main>
 
   <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
+
