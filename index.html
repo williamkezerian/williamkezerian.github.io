@@ -7,40 +7,49 @@
   <meta name="description" content="Computational linguistics • Creole linguistics • NLP for low-resource languages" />
   <style>
     :root{
-      --ink:#111827; --muted:#4b5563; --link:#2563eb;
-      --line:#e5e7eb; --bg:#ffffff; --max:1100px; --pad:24px;
+      --ink:#111827;         /* headings/links */
+      --muted:#4b5563;       /* body text */
+      --line:#e5e7eb;
+      --bg:#ffffff;
+      --max:1100px;
+      --pad-x:40px;          /* extra left/right padding to line up with header brand */
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
     body{font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
-    a{color:var(--link);text-decoration:none}
+    a{color:var(--ink);text-decoration:none}
     a:hover{text-decoration:underline}
     h1,h2,h3{line-height:1.25;margin:0 0 .6rem}
     h1{font-size:2rem}
     h2{font-size:1.3rem;margin-top:2.25rem;border-bottom:1px solid var(--line);padding-bottom:.35rem}
     p,li{margin:.6rem 0;color:var(--muted)}
-    .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad-x)}
 
     /* header/nav */
     header{border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:10}
     .top{display:flex;align-items:center;justify-content:space-between;height:64px}
     .brand{font-weight:700;font-size:1.05rem}
-    nav a{margin-left:22px;color:var(--ink);font-size:.95rem}
+    nav a{margin-left:22px}
     nav a:hover{text-decoration:underline}
 
     /* PAGE LAYOUT: sidebar spans whole page */
-    .layout{display:grid;grid-template-columns:280px 1fr;gap:48px;margin:40px 0}
+    .layout{display:grid;grid-template-columns:300px 1fr;gap:48px;margin:40px 0}
     .sidebar{
-      border:1px solid var(--line);border-radius:12px;padding:22px;background:#fff;
-      position:sticky;top:92px; /* header (~64px) + space */
-      height:fit-content;max-height:calc(100vh - 110px);overflow:auto;
+      /* invisible card like Rafael's: no border, no bg */
+      border:none;background:transparent;padding:0;
+      position:sticky;top:92px;height:fit-content;max-height:calc(100vh - 110px);overflow:auto;
+      text-align:center; /* center name & photo */
     }
-    .headshot{width:160px;height:160px;border-radius:50%;object-fit:cover;margin:0 auto 16px;border:1px solid var(--line)}
-    .name{font-weight:700;text-align:center;margin:0 0 4px;font-size:1.1rem}
-    .role{text-align:center;color:var(--muted);margin:0 0 16px;font-size:.95rem}
-    .meta{list-style:none;padding:0;margin:0;font-size:.9rem}
-    .meta li{margin:10px 0;display:flex;align-items:center;gap:8px}
-    .meta a{color:var(--link)}
+    .headshot{
+      width:172px;height:172px;border-radius:50%;object-fit:cover;
+      display:block;margin:0 auto 16px;border:1px solid var(--line);
+    }
+    .name{font-weight:700;margin:0 0 4px;font-size:1.1rem}
+    .role{color:var(--muted);margin:0 0 16px;font-size:.95rem}
+
+    .meta{list-style:none;padding:0;margin:6px 0 0 0;font-size:.95rem;text-align:left;display:inline-block}
+    .meta li{margin:10px 0;display:flex;align-items:center;gap:10px}
+    .icon{width:16px;height:16px;color:#111827;flex:none}
 
     .content h1{margin-top:0}
     .tagline{color:var(--muted)}
@@ -67,25 +76,74 @@
         <a href="#about">About</a>
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
-        <a href="#cv">CV</a>
+        <!-- CV goes straight to PDF -->
+        <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
       </nav>
     </div>
   </header>
 
   <main class="wrap layout">
-    <!-- LEFT: sticky sidebar (visible for entire page scroll) -->
+    <!-- LEFT: sticky sidebar -->
     <aside class="sidebar">
       <img class="headshot" src="assets/img/headshot.jpg" alt="Photo of William Kezerian" />
       <h3 class="name">William J. Kezerian</h3>
       <p class="role">MA Candidate · Linguistic Studies<br>Syracuse University</p>
+
       <ul class="meta">
-        <li>📍 NY, USA</li>
-        <li>🏫 Syracuse University</li>
-        <li>✉️ <a href="mailto:wjkezeri@syr.edu">wjkezeri@syr.edu</a></li>
-        <li><a href="https://scholar.google.com/" rel="noopener">Google Scholar</a></li>
-        <li><a href="https://github.com/wkezer" rel="noopener">GitHub</a></li>
-        <li><a href="https://linkedin.com/in/williamkezerian" rel="noopener">LinkedIn</a></li>
-        <li><a href="cv.pdf">CV (PDF)</a></li>
+        <li>
+          <!-- black pin icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s7-5.33 7-12a7 7 0 1 0-14 0c0 6.67 7 12 7 12z"/>
+            <circle cx="12" cy="10" r="2.5"/>
+          </svg>
+          <span>NY, USA</span>
+        </li>
+        <li>
+          <!-- university/campus icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 10l9-6 9 6-9 6-9-6z"/>
+            <path d="M21 10v6"/>
+            <path d="M3 10v6"/>
+            <path d="M7 22h10"/>
+          </svg>
+          <span>Syracuse University</span>
+        </li>
+        <li>
+          <!-- mail icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/>
+          </svg>
+          <a href="mailto:wjkezeri@syr.edu">wjkezeri@syr.edu</a>
+        </li>
+        <li>
+          <!-- scholar (book) icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5V5a2 2 0 0 1 2-2h11"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M20 22V3a2 2 0 0 0-2-2H6"/>
+          </svg>
+          <a href="https://scholar.google.com/" rel="noopener">Google Scholar</a>
+        </li>
+        <li>
+          <!-- github icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.57v-2.24c-3.34.73-4.04-1.41-4.04-1.41-.55-1.41-1.35-1.79-1.35-1.79-1.1-.76.08-.74.08-.74 1.22.09 1.86 1.26 1.86 1.26 1.08 1.85 2.83 1.31 3.52 1 .11-.8.42-1.31.76-1.61-2.66-.31-5.47-1.33-5.47-5.92 0-1.31.47-2.39 1.24-3.24-.12-.31-.54-1.56.12-3.25 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.69.24 2.94.12 3.25.77.85 1.24 1.93 1.24 3.24 0 4.6-2.81 5.6-5.49 5.91.43.37.81 1.1.81 2.22v3.29c0 .31.21.68.82.57A12 12 0 0 0 12 .5z"/>
+          </svg>
+          <a href="https://github.com/wkezer" rel="noopener">GitHub</a>
+        </li>
+        <li>
+          <!-- linkedin icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4zM8 8h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2C19.6 8 22 10 22 14.2V24h-4v-8.6c0-2.05-.73-3.45-2.55-3.45-1.39 0-2.22.94-2.58 1.85-.13.32-.16.77-.16 1.22V24H8z"/>
+          </svg>
+          <a href="https://linkedin.com/in/williamkezerian" rel="noopener">LinkedIn</a>
+        </li>
+        <li>
+          <!-- file/pdf icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/>
+          </svg>
+          <a href="cv.pdf" rel="noopener">CV (PDF)</a>
+        </li>
       </ul>
     </aside>
 
@@ -165,4 +223,5 @@
   <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
+
 
