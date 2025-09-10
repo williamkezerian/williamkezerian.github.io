@@ -13,11 +13,12 @@
       --bg:#ffffff;
       --max:1300px;
       --pad-x:135px;          /* extra left/right padding to line up with header brand */
+      --link:#064e3b;         /* dark green for hyperlinks */
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
     body{font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
-    a{color:var(--ink);text-decoration:none}
+    a{color:var(--link);text-decoration:none}
     a:hover{text-decoration:underline}
     h1,h2,h3{line-height:1.25;margin:0 0 .6rem}
     h1{font-size:2rem}
@@ -35,10 +36,9 @@
     /* PAGE LAYOUT: sidebar spans whole page */
     .layout{display:grid;grid-template-columns:300px 1fr;gap:48px;margin:40px 0}
     .sidebar{
-      /* invisible card like Rafael's: no border, no bg */
       border:none;background:transparent;padding:0;
       position:sticky;top:92px;height:fit-content;max-height:calc(100vh - 110px);overflow:auto;
-      text-align:center; /* center name & photo */
+      text-align:center;
     }
     .headshot{
       width:172px;height:172px;border-radius:50%;object-fit:cover;
@@ -73,10 +73,9 @@
     <div class="wrap top">
       <div class="brand">William J. Kezerian</div>
       <nav aria-label="Primary">
-        <a href="#about">About</a>
+        <!-- About link removed -->
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
-        <!-- CV goes straight to PDF -->
         <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
       </nav>
     </div>
@@ -159,7 +158,7 @@
 
         <div class="cols">
           <p>
-            My thesis develops an <strong>ASR pipeline for Guadeloupean Creole</strong> to support documentation and
+            I My thesis develops an <strong>ASR pipeline for Guadeloupean Creole</strong> to support documentation and
             quantitative analysis of phenomena like focus/fronting and complementation. I’m broadly interested in
             representation learning for speech/text in low-resource settings and in building tools that make bilingual
             education and documentation more practical.
@@ -216,5 +215,4 @@
   <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
-
 
