@@ -13,12 +13,11 @@
       --bg:#ffffff;
       --max:1300px;
       --pad-x:135px;          /* extra left/right padding to line up with header brand */
-      --link:#064e3b;         /* dark green for hyperlinks */
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
     body{font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
-    a{color:var(--link);text-decoration:none}
+    a{color:var(--ink);text-decoration:none}
     a:hover{text-decoration:underline}
     h1,h2,h3{line-height:1.25;margin:0 0 .6rem}
     h1{font-size:2rem}
@@ -36,9 +35,10 @@
     /* PAGE LAYOUT: sidebar spans whole page */
     .layout{display:grid;grid-template-columns:300px 1fr;gap:48px;margin:40px 0}
     .sidebar{
+      /* invisible card like Rafael's: no border, no bg */
       border:none;background:transparent;padding:0;
       position:sticky;top:92px;height:fit-content;max-height:calc(100vh - 110px);overflow:auto;
-      text-align:center;
+      text-align:center; /* center name & photo */
     }
     .headshot{
       width:172px;height:172px;border-radius:50%;object-fit:cover;
@@ -49,6 +49,7 @@
 
     .meta{list-style:none;padding:0;margin:6px 0 0 0;font-size:.95rem;text-align:left;display:inline-block}
     .meta li{margin:10px 0;display:flex;align-items:center;gap:10px}
+    .meta span{color:var(--ink)}     /* make location & university black */
     .icon{width:16px;height:16px;color:#111827;flex:none}
 
     .content h1{margin-top:0}
@@ -73,9 +74,9 @@
     <div class="wrap top">
       <div class="brand">William J. Kezerian</div>
       <nav aria-label="Primary">
-        <!-- About link removed -->
-        <a href="#research">Research</a>
+        <!-- About & Research links removed -->
         <a href="#publications">Publications</a>
+        <!-- CV goes straight to PDF -->
         <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
       </nav>
     </div>
@@ -215,4 +216,5 @@
   <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
+
 
