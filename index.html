@@ -11,26 +11,31 @@
       --muted:#4b5563;       /* body text */
       --line:#e5e7eb;
       --bg:#ffffff;
+      --green:#064e3b;       /* NEW: dark green accent */
       --max:1400px;
-      --pad-x:100px;          /* extra left/right padding to line up with header brand */
+      --pad-x:100px;         /* extra left/right padding to line up with header brand */
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
     body{font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
     a{color:var(--ink);text-decoration:none}
-    a:hover{text-decoration:underline}
+    /* Keep links black; make hover underline green */
+    a:hover{text-decoration:underline; text-decoration-color:var(--green)}
     h1,h2,h3{line-height:1.25;margin:0 0 .6rem}
     h1{font-size:2rem}
-    h2{font-size:1.3rem;margin-top:2.25rem;border-bottom:1px solid var(--line);padding-bottom:.35rem}
+    /* Section rule now green for a subtle accent */
+    h2{font-size:1.3rem;margin-top:2.25rem;border-bottom:1px solid var(--green);padding-bottom:.35rem}
     p,li{margin:.6rem 0;color:var(--muted)}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad-x)}
 
     /* header/nav */
-    header{border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:10}
+    /* Header divider now green and a touch thicker */
+    header{border-bottom:2px solid var(--green);position:sticky;top:0;background:#fff;z-index:10}
     .top{display:flex;align-items:center;justify-content:space-between;height:64px}
     .brand{font-weight:700;font-size:1.05rem}
     nav a{margin-left:22px}
-    nav a:hover{text-decoration:underline}
+    /* Green hover on nav text for a tiny pop */
+    nav a:hover{text-decoration:underline; text-decoration-color:var(--green); color:var(--green)}
 
     /* PAGE LAYOUT: sidebar spans whole page */
     .layout{display:grid;grid-template-columns:300px 1fr;gap:48px;margin:40px 0}
@@ -42,14 +47,17 @@
     }
     .headshot{
       width:172px;height:172px;border-radius:50%;object-fit:cover;
-      display:block;margin:0 auto 16px;border:1px solid var(--line);
+      display:block;margin:0 auto 16px;
+      /* Subtle green ring instead of gray */
+      border:2px solid var(--green);
     }
     .name{font-weight:700;margin:0 0 4px;font-size:1.1rem}
     .role{color:var(--muted);margin:0 0 16px;font-size:.95rem}
 
     .meta{list-style:none;padding:0;margin:6px 0 0 0;font-size:.95rem;text-align:left;display:inline-block}
     .meta li{margin:10px 0;display:flex;align-items:center;gap:10px}
-    .meta span{color:var(--ink)}     /* make location & university black */
+    /* Location & university already black via span rule below */
+    .meta span{color:var(--ink)}
     .icon{width:16px;height:16px;color:#111827;flex:none}
 
     .content h1{margin-top:0}
@@ -57,9 +65,12 @@
     .cols{max-width:700px}
 
     section{padding-top:8px}
+    /* Make list markers green for tasteful color in content */
     .list-clean{padding-left:1.15rem}
+    .list-clean li::marker{ color:var(--green) }
     .smallmuted{color:var(--muted);font-size:.9rem}
-    footer{border-top:1px solid var(--line);margin-top:40px;padding:18px 0;color:var(--muted);font-size:.85rem;text-align:center}
+    /* Footer divider green to bookend the page */
+    footer{border-top:1px solid var(--green);margin-top:40px;padding:18px 0;color:var(--muted);font-size:.85rem;text-align:center}
 
     /* mobile */
     @media (max-width: 900px){
@@ -210,5 +221,6 @@
   <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
+
 
 
