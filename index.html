@@ -11,7 +11,7 @@
       --muted:#4b5563;       /* body text */
       --line:#e5e7eb;
       --bg:#ffffff;
-      --green:#064e3b;       /* NEW: dark green accent */
+      --green:#064e3b;       /* dark green accent */
       --max:1400px;
       --pad-x:100px;         /* extra left/right padding to line up with header brand */
     }
@@ -19,45 +19,43 @@
     html,body{margin:0;padding:0}
     body{font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
     a{color:var(--ink);text-decoration:none}
-    /* Keep links black; make hover underline green */
+    /* Keep links black; green underline on hover */
     a:hover{text-decoration:underline; text-decoration-color:var(--green)}
     h1,h2,h3{line-height:1.25;margin:0 0 .6rem}
     h1{font-size:2rem}
-    /* Section rule now green for a subtle accent */
+    /* keep subtle green accent on section rule */
     h2{font-size:1.3rem;margin-top:2.25rem;border-bottom:1px solid var(--green);padding-bottom:.35rem}
     p,li{margin:.6rem 0;color:var(--muted)}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad-x)}
 
-    /* header/nav */
-    /* Header divider now green and a touch thicker */
-    header{border-bottom:2px solid var(--green);position:sticky;top:0;background:#fff;z-index:10}
+    /* header/nav — now green with white text */
+    header{
+      position:sticky;top:0;z-index:10;
+      background:var(--green);
+      border-bottom:none;
+    }
     .top{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .brand{font-weight:700;font-size:1.05rem}
-    nav a{margin-left:22px}
-    /* Green hover on nav text for a tiny pop */
-    nav a:hover{text-decoration:underline; text-decoration-color:var(--green); color:var(--green)}
+    .brand{font-weight:700;font-size:1.05rem;color:#ffffff}
+    nav a{margin-left:22px;color:#ffffff}
+    nav a:hover{color:#ffffff;text-decoration:underline;text-decoration-color:#ffffff}
 
     /* PAGE LAYOUT: sidebar spans whole page */
     .layout{display:grid;grid-template-columns:300px 1fr;gap:48px;margin:40px 0}
     .sidebar{
-      /* invisible card like Rafael's: no border, no bg */
       border:none;background:transparent;padding:0;
       position:sticky;top:92px;height:fit-content;max-height:calc(100vh - 110px);overflow:auto;
       text-align:center; /* center name & photo */
     }
     .headshot{
       width:172px;height:172px;border-radius:50%;object-fit:cover;
-      display:block;margin:0 auto 16px;
-      /* Subtle green ring instead of gray */
-      border:2px solid var(--green);
+      display:block;margin:0 auto 16px;border:1px solid var(--line); /* back to subtle gray */
     }
     .name{font-weight:700;margin:0 0 4px;font-size:1.1rem}
     .role{color:var(--muted);margin:0 0 16px;font-size:.95rem}
 
     .meta{list-style:none;padding:0;margin:6px 0 0 0;font-size:.95rem;text-align:left;display:inline-block}
     .meta li{margin:10px 0;display:flex;align-items:center;gap:10px}
-    /* Location & university already black via span rule below */
-    .meta span{color:var(--ink)}
+    .meta span{color:var(--ink)}     /* location & university black */
     .icon{width:16px;height:16px;color:#111827;flex:none}
 
     .content h1{margin-top:0}
@@ -65,11 +63,8 @@
     .cols{max-width:700px}
 
     section{padding-top:8px}
-    /* Make list markers green for tasteful color in content */
-    .list-clean{padding-left:1.15rem}
-    .list-clean li::marker{ color:var(--green) }
+    .list-clean{padding-left:1.15rem} /* default black bullets restored (removed green marker) */
     .smallmuted{color:var(--muted);font-size:.9rem}
-    /* Footer divider green to bookend the page */
     footer{border-top:1px solid var(--green);margin-top:40px;padding:18px 0;color:var(--muted);font-size:.85rem;text-align:center}
 
     /* mobile */
@@ -137,7 +132,7 @@
         <li>
           <!-- github icon -->
           <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.57v-2.24c-3.34.73-4.04-1.41-4.04-1.41-.55-1.41-1.35-1.79-1.35-1.79-1.1-.76.08-.74.08-.74 1.22.09 1.86 1.26 1.86 1.26 1.08 1.85 2.83 1.31 3.52 1 .11-.8.42-1.31.76-1.61-2.66-.31-5.47-1.33-5.47-5.92 0-1.31.47-2.39 1.24-3.24-.12-.31-.54-1.56.12-3.25 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.69.24 2.94.12 3.25.77.85 1.24 1.93 1.24 3.24 0 4.6-2.81 5.6-5.49 5.91.43.37.81 1.1.81 2.22v3.29c0 .31.21.68.82.57A12 12 0 0 0 12 .5z"/>
+            <path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.57v-2.24c-3.34.73-4.04-1.41-4.04-1.41-.55-1.41-1.35-1.79-1.35-1.79-1.1-.76.08-.74.08-.74 1.22.09 1.86 1.26 1.86 1.26 1.08 1.85 2.83 1.31 3.52 1 .11-.8.42-1.31 .76-1.61-2.66-.31-5.47-1.33-5.47-5.92 0-1.31.47-2.39 1.24-3.24-.12-.31-.54-1.56.12-3.25 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.69.24 2.94.12 3.25.77.85 1.24 1.93 1.24 3.24 0 4.6-2.81 5.6-5.49 5.91.43.37.81 1.1.81 2.22v3.29c0 .31.21.68.82.57A12 12 0 0 0 12 .5z"/>
           </svg>
           <a href="https://github.com/wkezer" rel="noopener">GitHub</a>
         </li>
@@ -221,6 +216,7 @@
   <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
+
 
 
 
