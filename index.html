@@ -13,7 +13,7 @@
       --bg:#ffffff;
       --green:#064e3b;       /* dark green accent */
       --green-strong:#0b6b53;
-      --green-soft:#ecfdf5;  /* pale green background for highlights */
+      --green-soft:#ecfdf5;  /* pale green background (unused now) */
       --max:1400px;
       --pad-x:100px;         /* extra left/right padding to line up with header brand */
     }
@@ -21,15 +21,14 @@
     html,body{margin:0;padding:0}
     body{font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
     a{color:var(--ink);text-decoration:none;border-radius:4px}
-    /* Keep links black; green underline + soft bg on hover */
+    /* HOVER: dark green bg + white text */
     a:hover{
-      text-decoration:underline; 
-      text-decoration-color:var(--green);
-      background:rgba(6,78,59,.08);
+      color:#ffffff;
+      background:var(--green);
+      text-decoration:none;
     }
     h1,h2,h3{line-height:1.25;margin:0 0 .6rem}
     h1{font-size:2rem}
-    /* subtle green accent on section rule */
     h2{font-size:1.3rem;margin-top:2.25rem;border-bottom:1px solid var(--green);padding-bottom:.35rem}
     p,li{margin:.6rem 0;color:var(--muted)}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad-x)}
@@ -43,14 +42,8 @@
     .top{display:flex;align-items:center;justify-content:space-between;height:64px}
     .brand{font-weight:700;font-size:1.05rem;color:#ffffff}
     nav a{margin-left:22px;color:#ffffff}
-    nav a:hover{color:#ffffff;text-decoration:underline;text-decoration-color:#ffffff;background:rgba(255,255,255,.08)}
-    /* CV button style */
-    nav .btn{
-      padding:6px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.35);
-      transition:transform .05s ease-in-out;
-    }
-    nav .btn:hover{background:rgba(255,255,255,.15)}
-    nav .btn:active{transform:translateY(1px)}
+    /* Keep nav hover subtle on green header */
+    nav a:hover{color:#ffffff;background:rgba(255,255,255,.15)}
 
     /* PAGE LAYOUT */
     .layout{display:grid;grid-template-columns:300px 1fr;gap:48px;margin:40px 0}
@@ -84,23 +77,6 @@
       background:var(--green);border-radius:2px;
     }
 
-    /* optional callout paragraph block */
-    .callout{
-      border-left:3px solid var(--green);
-      background:var(--green-soft);
-      padding:.5rem .75rem;
-      border-radius:6px;
-    }
-
-    /* tag chips */
-    .tags{display:flex;flex-wrap:wrap;gap:8px;margin:.5rem 0 0}
-    .tag{
-      font-size:.78rem;line-height:1;
-      padding:.35rem .5rem;border-radius:999px;
-      background:var(--green-soft);color:var(--green);
-      border:1px solid rgba(6,78,59,.18);
-    }
-
     .list-clean{padding-left:1.15rem}
     .smallmuted{color:var(--muted);font-size:.9rem}
     footer{border-top:1px solid var(--green);margin-top:40px;padding:18px 0;color:var(--muted);font-size:.85rem;text-align:center}
@@ -121,7 +97,7 @@
         <!-- About & Research links removed -->
         <a href="#publications">Publications</a>
         <!-- CV goes straight to PDF -->
-        <a class="btn" href="cv.pdf" target="_blank" rel="noopener">CV</a>
+        <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
       </nav>
     </div>
   </header>
@@ -177,7 +153,7 @@
         <li>
           <!-- linkedin icon -->
           <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4zM8 8h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2C19.6 8 22 10 22 14.2V24h-4v-8.6c0-2.05 -.73 -3.45 -2.55 -3.45 -1.39 0 -2.22 .94 -2.58 1.85 -.13 .32 -.16 .77 -.16 1.22V24H8z"/>
+            <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4zM8 8h3.8v2.2h.05c .53-1 1.83-2.2 3.77-2.2C19.6 8 22 10 22 14.2V24h-4v-8.6c0-2.05 -.73 -3.45 -2.55 -3.45 -1.39 0 -2.22 .94 -2.58 1.85 -.13 .32 -.16 .77 -.16 1.22V24H8z"/>
           </svg>
           <a href="https://linkedin.com/in/williamkezerian" rel="noopener">LinkedIn</a>
         </li>
@@ -191,7 +167,7 @@
       </ul>
     </aside>
 
-    <!-- RIGHT: all content sections -->
+    <!-- RIGHT: content -->
     <div class="content">
       <section id="about" aria-labelledby="intro">
         <h1 id="intro">Hi, I’m Will.</h1>
@@ -199,7 +175,7 @@
           I work on computational linguistics, French-based Creoles, syntax, and experimental methods.
         </p>
         <div class="cols">
-          <p class="callout">
+          <p>
             I am a second year MA student in Linguistics, with a concentration on NLP and syntactic theory, where I am advised by <strong>Jaklin Kornfilt</strong>. 
             My thesis work concerns developing low-resource <strong>ASR models for Guadeloupean Creole</strong> to support documentation and
             syntactic analysis of phenomena such as focus and complementation. I’m broadly interested in
@@ -211,15 +187,6 @@
 
       <section id="research areas">
         <h2>Ongoing Research</h2>
-
-        <!-- small topic chips; remove if you don't like -->
-        <div class="tags" aria-label="Research topics">
-          <span class="tag">ASR</span>
-          <span class="tag">Creole syntax</span>
-          <span class="tag">Low-resource NLP</span>
-          <span class="tag">Fieldwork</span>
-        </div>
-
         <ul class="list-clean">
           <li><strong>Field Research</strong> — Empirical data collection in Guadeloupe in 2024 concerning focus and subordination in Guadeloupean Creole.</li>
           <li><strong>Guadeloupean Creole Syntax</strong> — Complementation, reduplicative focus fronting, and complementation structures.</li>
@@ -263,6 +230,7 @@
   <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
+
 
 
 
