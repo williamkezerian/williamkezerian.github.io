@@ -7,33 +7,33 @@
   <meta name="description" content="Computational linguistics • Creole linguistics • NLP for low-resource languages" />
   <style>
     :root{
-      --ink:#111827;         /* headings/links */
-      --muted:#4b5563;       /* body text */
+      --ink:#111827;         
+      --muted:#4b5563;       
       --line:#e5e7eb;
       --bg:#ffffff;
-      --green:#064e3b;       /* dark green accent */
+      --green:#064e3b;       
       --green-strong:#0b6b53;
-      --green-soft:#ecfdf5;  /* pale green background (unused now) */
       --max:1400px;
-      --pad-x:100px;         /* extra left/right padding to line up with header brand */
+      --pad-x:100px;         
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
     body{font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
-    a{color:var(--ink);text-decoration:none;border-radius:4px}
-    /* HOVER: dark green bg + white text */
+    
+    a{color:var(--ink);text-decoration:none;border-radius:4px;padding:2px 4px;transition:all .2s ease}
     a:hover{
       color:#ffffff;
       background:var(--green);
       text-decoration:none;
     }
+
     h1,h2,h3{line-height:1.25;margin:0 0 .6rem}
     h1{font-size:2rem}
     h2{font-size:1.3rem;margin-top:2.25rem;border-bottom:1px solid var(--green);padding-bottom:.35rem}
     p,li{margin:.6rem 0;color:var(--muted)}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad-x)}
 
-    /* header/nav — green gradient with white text */
+    /* header/nav */
     header{
       position:sticky;top:0;z-index:10;
       background:linear-gradient(90deg,var(--green),var(--green-strong));
@@ -41,11 +41,10 @@
     }
     .top{display:flex;align-items:center;justify-content:space-between;height:64px}
     .brand{font-weight:700;font-size:1.05rem;color:#ffffff}
-    nav a{margin-left:22px;color:#ffffff}
-    /* Keep nav hover subtle on green header */
-    nav a:hover{color:#ffffff;background:rgba(255,255,255,.15)}
+    nav a{margin-left:22px;color:#ffffff;padding:2px 8px}
+    nav a:hover{color:#ffffff;background:rgba(255,255,255,.2)}
 
-    /* PAGE LAYOUT */
+    /* layout */
     .layout{display:grid;grid-template-columns:300px 1fr;gap:48px;margin:40px 0}
     .sidebar{
       border:none;background:transparent;padding:0;
@@ -63,25 +62,25 @@
     .meta li{margin:10px 0;display:flex;align-items:center;gap:10px}
     .meta span{color:var(--ink)}
     .icon{width:16px;height:16px;color:#111827;flex:none}
-    /* tint icons on hover for a subtle cue */
     .meta li:hover .icon{color:var(--green)}
 
     .content h1{margin-top:0}
     .tagline{color:var(--muted)}
     .cols{max-width:700px}
 
-    /* section rhythm: thin green stripe before each section */
-    section{padding-top:16px;position:relative}
-    section::before{
+    /* keep green stripe only for About section */
+    #about{position:relative;padding-top:16px}
+    #about::before{
       content:"";position:absolute;top:-10px;left:0;width:52px;height:3px;
       background:var(--green);border-radius:2px;
     }
+    section{padding-top:16px}
+    section:not(#about)::before{display:none}
 
     .list-clean{padding-left:1.15rem}
     .smallmuted{color:var(--muted);font-size:.9rem}
     footer{border-top:1px solid var(--green);margin-top:40px;padding:18px 0;color:var(--muted);font-size:.85rem;text-align:center}
 
-    /* mobile */
     @media (max-width: 900px){
       .layout{grid-template-columns:1fr}
       .sidebar{position:static;max-height:none}
@@ -94,86 +93,53 @@
     <div class="wrap top">
       <div class="brand">William J. Kezerian</div>
       <nav aria-label="Primary">
-        <!-- About & Research links removed -->
         <a href="#publications">Publications</a>
-        <!-- CV goes straight to PDF -->
         <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
       </nav>
     </div>
   </header>
 
   <main class="wrap layout">
-    <!-- LEFT: sticky sidebar -->
     <aside class="sidebar">
       <img class="headshot" src="assets/img/headshot.jpg" alt="Photo of William Kezerian" />
       <h3 class="name">William J. Kezerian</h3>
       <p class="role">NSF-IRES Research Fellow<br>MA Candidate · Linguistic Studies<br>Syracuse University</p>
-
       <ul class="meta">
         <li>
-          <!-- black pin icon -->
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s7-5.33 7-12a7 7 0 1 0-14 0c0 6.67 7 12 7 12z"/>
-            <circle cx="12" cy="10" r="2.5"/>
-          </svg>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-5.33 7-12a7 7 0 1 0-14 0c0 6.67 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
           <span>NY, USA</span>
         </li>
         <li>
-          <!-- university/campus icon -->
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 10l9-6 9 6-9 6-9-6z"/>
-            <path d="M21 10v6"/>
-            <path d="M3 10v6"/>
-            <path d="M7 22h10"/>
-          </svg>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10l9-6 9 6-9 6-9-6z"/><path d="M21 10v6"/><path d="M3 10v6"/><path d="M7 22h10"/></svg>
           <span>Syracuse University</span>
         </li>
         <li>
-          <!-- mail icon -->
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/>
-          </svg>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
           <a href="mailto:wjkezeri@syr.edu">wjkezeri@syr.edu</a>
         </li>
         <li>
-          <!-- scholar (book) icon -->
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 19.5V5a2 2 0 0 1 2-2h11"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-            <path d="M20 22V3a2 2 0 0 0-2-2H6"/>
-          </svg>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V5a2 2 0 0 1 2-2h11"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M20 22V3a2 2 0 0 0-2-2H6"/></svg>
           <a href="https://www.researchgate.net/profile/William-Kezerian" rel="noopener">Research Gate</a>
         </li>
         <li>
-          <!-- github icon -->
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.57v-2.24c-3.34.73-4.04-1.41-4.04-1.41-.55-1.41-1.35-1.79-1.35-1.79-1.1-.76.08-.74.08-.74 1.22.09 1.86 1.26 1.86 1.26 1.08 1.85 2.83 1.31 3.52 1 .11-.8.42-1.31 .76-1.61-2.66-.31-5.47-1.33-5.47-5.92 0-1.31.47-2.39 1.24-3.24-.12-.31-.54-1.56.12-3.25 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23 .66 1.69 .24 2.94 .12 3.25 .77 .85 1.24 1.93 1.24 3.24 0 4.6 -2.81 5.6 -5.49 5.91 .43 .37 .81 1.1 .81 2.22v3.29c0 .31 .21 .68 .82 .57A12 12 0 0 0 12 .5z"/>
-          </svg>
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.57v-2.24c-3.34.73-4.04-1.41-4.04-1.41-.55-1.41-1.35-1.79-1.35-1.79-1.1-.76.08-.74.08-.74 1.22.09 1.86 1.26 1.86 1.26 1.08 1.85 2.83 1.31 3.52 1 .11-.8.42-1.31 .76-1.61-2.66-.31-5.47-1.33-5.47-5.92 0-1.31.47-2.39 1.24-3.24-.12-.31-.54-1.56.12-3.25 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23 .66 1.69 .24 2.94 .12 3.25 .77 .85 1.24 1.93 1.24 3.24 0 4.6 -2.81 5.6 -5.49 5.91 .43 .37 .81 1.1 .81 2.22v3.29c0 .31 .21 .68 .82 .57A12 12 0 0 0 12 .5z"/></svg>
           <a href="https://github.com/williamkezerian" rel="noopener">GitHub</a>
         </li>
         <li>
-          <!-- linkedin icon -->
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4zM8 8h3.8v2.2h.05c .53-1 1.83-2.2 3.77-2.2C19.6 8 22 10 22 14.2V24h-4v-8.6c0-2.05 -.73 -3.45 -2.55 -3.45 -1.39 0 -2.22 .94 -2.58 1.85 -.13 .32 -.16 .77 -.16 1.22V24H8z"/>
-          </svg>
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4zM8 8h3.8v2.2h.05c .53-1 1.83-2.2 3.77-2.2C19.6 8 22 10 22 14.2V24h-4v-8.6c0-2.05 -.73 -3.45 -2.55 -3.45 -1.39 0-2.22 .94 -2.58 1.85-.13 .32-.16 .77-.16 1.22V24H8z"/></svg>
           <a href="https://linkedin.com/in/williamkezerian" rel="noopener">LinkedIn</a>
         </li>
         <li>
-          <!-- file/pdf icon -->
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 2H6a2 2 0 0 0 -2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2V8z"/><path d="M14 2v6h6"/>
-          </svg>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0 -2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2V8z"/><path d="M14 2v6h6"/></svg>
           <a href="cv.pdf" rel="noopener">CV</a>
         </li>
       </ul>
     </aside>
 
-    <!-- RIGHT: content -->
     <div class="content">
       <section id="about" aria-labelledby="intro">
         <h1 id="intro">Hi, I’m Will.</h1>
-        <p class="tagline">
-          I work on computational linguistics, French-based Creoles, syntax, and experimental methods.
-        </p>
+        <p class="tagline">I work on computational linguistics, French-based Creoles, syntax, and experimental methods.</p>
         <div class="cols">
           <p>
             I am a second year MA student in Linguistics, with a concentration on NLP and syntactic theory, where I am advised by <strong>Jaklin Kornfilt</strong>. 
@@ -197,7 +163,6 @@
 
       <section id="publications">
         <h2>Selected Publications & Presentations</h2>
-
         <h3>Publications</h3>
         <ul class="list-clean">
           <li>
@@ -207,29 +172,26 @@
             <a href="https://aclanthology.org/2024.sigmorphon-1.5/" rel="noopener">Link</a>
           </li>
         </ul>
-
         <h3>Peer-Reviewed Conference Presentations</h3>
         <ul class="list-clean">
           <li><em>The Role of kè in Guadeloupean Creole Complementation</em>. Syntax of the World’s Languages X, Potsdam, 2025.</li>
           <li><em>Focus and Fronting in Guadeloupean Creole</em>. SLE 2025 Workshop on Focus Typology, Bordeaux, 2025.</li>
         </ul>
-
         <h3>Invited Talks</h3>
         <ul class="list-clean">
           <li><em>Creole for the Classroom: NLP & documentation for native-language education</em>. VII Summer School on Language Policy, Siena, 2025.</li>
           <li><em>NLP in Language Documentation: GC focus and fronting</em>. Syracuse University Research Fest, 2025.</li>
         </ul>
-
         <p class="smallmuted">See CV for the complete list of publications, talks, and posters.</p>
       </section>
 
       <footer>© <span id="y"></span> William J. Kezerian</footer>
     </div>
   </main>
-
   <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
+
 
 
 
