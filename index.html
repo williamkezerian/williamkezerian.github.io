@@ -18,7 +18,7 @@
     .site-nav a{color:#ecfdf5;}
 
     /* Layout */
-    main{max-width:1325px;margin:0 auto;padding:2.5rem 1.5rem 3rem;display:grid;grid-template-columns:minmax(230px,270px) minmax(0,1fr);gap:3rem;}
+    main{max-width:1375px;margin:0 auto;padding:2.5rem 1.5rem 3rem;display:grid;grid-template-columns:minmax(230px,270px) minmax(0,1fr);gap:3rem;}
 
     /* Sidebar */
     .sidebar{text-align:left;}
@@ -30,6 +30,7 @@
     .sidebar-list li{display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem;font-size:.95rem;color:var(--muted);}
     .sidebar-icon{width:1.2rem;display:inline-flex;justify-content:center;flex-shrink:0;}
     .sidebar-list a{color:var(--muted);} .sidebar-list a:hover{color:var(--link);}
+    .icon-img{width:1.1rem;height:1.1rem;object-fit:contain;display:inline-block;}
 
     /* Content column */
     .content{max-width:850px;}
@@ -75,8 +76,33 @@
         <li><span class="sidebar-icon">📍</span><span>NY, USA</span></li>
         <li><span class="sidebar-icon">🎓</span><span>Syracuse University</span></li>
         <li><span class="sidebar-icon">✉️</span><a href="mailto:wjkezeri@syr.edu">wjkezeri@syr.edu</a></li>
-        <li><span class="sidebar-icon">🧪</span><a href="https://www.researchgate.net/" target="_blank" rel="noopener">ResearchGate</a></li>
-        <li><span class="sidebar-icon">🐙</span><a href="https://github.com/williamkezerian" target="_blank" rel="noopener">GitHub</a></li>
+
+        <!-- ORCID -->
+        <li>
+          <span class="sidebar-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" class="icon-img" alt="ORCID">
+          </span>
+          <a href="https://orcid.org/0009-0007-3919-9925" target="_blank" rel="noopener">
+            ORCID: 0009-0007-3919-9925
+          </a>
+        </li>
+
+        <!-- ResearchGate -->
+        <li>
+          <span class="sidebar-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/ResearchGate_icon_SVG.svg" class="icon-img" alt="ResearchGate">
+          </span>
+          <a href="https://www.researchgate.net/" target="_blank" rel="noopener">ResearchGate</a>
+        </li>
+
+        <!-- GitHub with silhouette logo -->
+        <li>
+          <span class="sidebar-icon">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" class="icon-img" alt="GitHub">
+          </span>
+          <a href="https://github.com/williamkezerian" target="_blank" rel="noopener">GitHub</a>
+        </li>
+
         <li><span class="sidebar-icon">in</span><a href="https://www.linkedin.com/in/williamkezerian" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><span class="sidebar-icon">📄</span><a href="cv.pdf" target="_blank" rel="noopener">CV</a></li>
       </ul>
@@ -124,6 +150,7 @@
   </main>
 </body>
 </html>
+
 
 
 
