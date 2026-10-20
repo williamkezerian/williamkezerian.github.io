@@ -4,157 +4,310 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>William J. Kezerian</title>
-  <meta name="description" content="Computational linguistics • Creole linguistics • NLP for low-resource languages" />
+  <meta name="description" content="PhD student in Linguistics at the University of Pennsylvania • Creole linguistics • Syntax • Computational linguistics" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
   <style>
-    :root{--ink:#111827;--muted:#4b5563;--accent:#065f46;--border:#e5e7eb;--link:#0f766e;}
+    :root{
+      --ink:#111827;--muted:#4b5563;--faint:#6b7280;--accent:#065f46;--border:#e5e7eb;--link:#0f766e;
+      --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+      --sans:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      --page:1180px;
+    }
     *{box-sizing:border-box;}
-    body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#ffffff;line-height:1.6;}
+    html{scroll-behavior:smooth;}
+    body{margin:0;font-family:var(--sans);color:var(--ink);background:#ffffff;line-height:1.65;}
     a{color:var(--link);text-decoration:none;}a:hover{text-decoration:underline;}
 
     /* Top bar */
-    .site-header{background:#065f46;color:#ecfdf5;padding:0.9rem 11vw;display:flex;align-items:center;justify-content:space-between;}
-    .site-header-title{font-weight:600;letter-spacing:.03em;}
-    .site-nav{display:flex;gap:1.5rem;font-size:.95rem;}
-    .site-nav a{color:#ecfdf5;}
+    .site-header{background:var(--accent);color:#ecfdf5;}
+    .site-header-inner{max-width:var(--page);margin:0 auto;padding:.9rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+    .site-header-title{font-family:var(--serif);font-weight:600;font-size:1.1rem;letter-spacing:.01em;color:#ecfdf5;}
+    .site-header-title:hover{text-decoration:none;}
+    .site-nav{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;font-size:.93rem;}
+    .site-nav a{color:#ecfdf5;opacity:.9;}
+    .site-nav a:hover{opacity:1;}
 
     /* Layout */
-    main{max-width:1355px;margin:0 auto;padding:2.5rem 1.5rem 3rem;display:grid;grid-template-columns:minmax(230px,270px) minmax(0,1fr);gap:3rem;}
+    main{max-width:var(--page);margin:0 auto;padding:2.75rem 1.5rem 4rem;display:grid;grid-template-columns:minmax(230px,260px) minmax(0,1fr);gap:3.5rem;}
 
     /* Sidebar */
     .sidebar{text-align:left;}
-    .profile-photo{width:180px;height:180px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 1.2rem;}
-    .sidebar-name{text-align:center;font-size:1.15rem;margin:0;}
+    .sidebar-inner{position:sticky;top:1.5rem;}
+    .profile-photo{width:170px;height:170px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 1.2rem;}
+    .sidebar-name{text-align:center;font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0;}
     .sidebar-role,.sidebar-line{text-align:center;margin:.15rem 0;font-size:.9rem;color:var(--muted);}
-    .sidebar-divider{margin:1.1rem 0 .7rem;border:none;border-top:1px solid var(--border);}
+    .sidebar-divider{margin:1.1rem 0 .8rem;border:none;border-top:1px solid var(--border);}
     .sidebar-list{list-style:none;padding:0;margin:0;}
-    .sidebar-list li{display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem;font-size:.95rem;color:var(--muted);}
+    .sidebar-list li{display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem;font-size:.93rem;color:var(--muted);}
     .sidebar-icon{width:1.2rem;display:inline-flex;justify-content:center;flex-shrink:0;}
     .sidebar-list a{color:var(--muted);} .sidebar-list a:hover{color:var(--link);}
     .icon-img{width:1.1rem;height:1.1rem;object-fit:contain;display:inline-block;}
 
     /* Content column */
-    .content{max-width:850px;}
-    .intro-accent{width:70px;height:4px;background:var(--accent);border-radius:999px;margin:0 0 .75rem;}
-    h1{margin:.2rem 0 0;font-size:2.2rem;letter-spacing:.02em;}
-    h1+p{margin-top:.4rem;}
+    .content{max-width:800px;}
+    .intro-accent{width:70px;height:4px;background:var(--accent);border-radius:999px;margin:0 0 .9rem;}
+    h1{font-family:var(--serif);font-weight:600;margin:0;font-size:2.3rem;line-height:1.2;letter-spacing:.005em;}
+    .tagline{margin:.35rem 0 1.3rem;color:var(--muted);font-size:1.02rem;}
+    .bio p{margin:0 0 .9rem;}
 
-    .section{margin-top:2.2rem;}
-    .section h2{margin:0 0 .35rem;font-size:1.25rem;font-weight:600;}
-    .section-divider{border:0;border-top:1px solid var(--accent);margin:0 0 .8rem;}
-    .section ul{margin:.4rem 0 0;padding-left:1.1rem;}
-    .section li{margin-bottom:.4rem;}
+    .section{margin-top:2.6rem;scroll-margin-top:1.5rem;}
+    .section h2{font-family:var(--serif);margin:0 0 .35rem;font-size:1.4rem;font-weight:600;letter-spacing:.005em;}
+    .section h3{font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);margin:1.4rem 0 .6rem;}
+    .section h2 + .section-divider + h3{margin-top:.4rem;}
+    .section-divider{border:0;border-top:1px solid var(--accent);margin:0 0 1rem;}
     .section em{font-style:italic;}
-    .section-note{margin-top:.6rem;font-size:.9rem;color:var(--muted);}
+
+    /* Research areas */
+    .research-list{list-style:none;padding:0;margin:0;}
+    .research-list li{margin-bottom:.75rem;}
+    .research-list strong{display:block;font-weight:600;}
+    .research-list span{color:var(--muted);}
+
+    /* Publications: hanging indent, no bullets */
+    .pub-list{list-style:none;padding:0;margin:0;}
+    .pub-list li{padding-left:1.5rem;text-indent:-1.5rem;margin-bottom:.8rem;}
+
+    /* Dated lists (presentations, talks, teaching, service) */
+    .dated{display:grid;grid-template-columns:84px minmax(0,1fr);column-gap:1.5rem;row-gap:.8rem;}
+    .dated .year{color:var(--faint);font-variant-numeric:tabular-nums;}
+    .item-links{font-size:.88rem;margin-left:.25rem;}
+    .item-links a{margin-right:.6rem;}
 
     @media(max-width:860px){
-      main{grid-template-columns:1fr;gap:2rem;}
+      main{grid-template-columns:1fr;gap:2.25rem;padding-top:2rem;}
       .sidebar{text-align:center;}
+      .sidebar-inner{position:static;}
       .sidebar-list li{justify-content:center;}
       .content{max-width:100%;}
+    }
+    @media(max-width:520px){
+      .dated{grid-template-columns:62px minmax(0,1fr);column-gap:1rem;}
+      h1{font-size:1.9rem;}
     }
   </style>
 </head>
 <body>
   <header class="site-header">
-    <div class="site-header-title">William J. Kezerian</div>
-    <nav class="site-nav">
-      <a href="teaching.html">Teaching</a>
-      <a href="cv_6.pdf" target="_blank" rel="noopener">CV</a>
-    </nav>
+    <div class="site-header-inner">
+      <a href="#top" class="site-header-title">William J. Kezerian</a>
+      <nav class="site-nav">
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#presentations">Presentations</a>
+        <a href="#talks">Talks</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#service">Service</a>
+        <a href="cv_6.pdf" target="_blank" rel="noopener">CV</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
+  <main id="top">
     <!-- LEFT COLUMN -->
     <aside class="sidebar">
-      <img src="assets/img/headshot.jpg" alt="Portrait of William J. Kezerian" class="profile-photo" />
-      <p class="sidebar-name">William J. Kezerian</p>
-      <p class="sidebar-role">PhD Student · Linguistics</p>
-      <p class="sidebar-line">University of Pennsylvania</p>
-      <hr class="sidebar-divider" />
-      <ul class="sidebar-list">
-        <li><span class="sidebar-icon">📍</span><span>Philadelphia, PA</span></li>
-        <li><span class="sidebar-icon">🎓</span><span>University of Pennsylvania</span></li>
-        <li><span class="sidebar-icon">✉️</span><a href="mailto:wjkezer@sas.upenn.edu">wjkezer@sas.upenn.edu</a></li>
+      <div class="sidebar-inner">
+        <img src="assets/img/headshot.jpg" alt="Portrait of William J. Kezerian" class="profile-photo" />
+        <p class="sidebar-name">William J. Kezerian</p>
+        <p class="sidebar-role">PhD Student · Linguistics</p>
+        <p class="sidebar-line">University of Pennsylvania</p>
+        <hr class="sidebar-divider" />
+        <ul class="sidebar-list">
+          <li><span class="sidebar-icon">📍</span><span>Philadelphia, PA</span></li>
+          <li><span class="sidebar-icon">🎓</span><span>University of Pennsylvania</span></li>
+          <li><span class="sidebar-icon">✉️</span><a href="mailto:wjkezer@sas.upenn.edu">wjkezer@sas.upenn.edu</a></li>
 
-        <!-- ORCID -->
-        <li>
-          <span class="sidebar-icon">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" class="icon-img" alt="ORCID">
-          </span>
-          <a href="https://orcid.org/0009-0007-3919-9925" target="_blank" rel="noopener">
-            ORCID: 0009-0007-3919-9925
-          </a>
-        </li>
+          <!-- ORCID -->
+          <li>
+            <span class="sidebar-icon">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" class="icon-img" alt="ORCID">
+            </span>
+            <a href="https://orcid.org/0009-0007-3919-9925" target="_blank" rel="noopener">ORCID: 0009-0007-3919-9925</a>
+          </li>
 
-        <!-- ResearchGate -->
-        <li>
-          <span class="sidebar-icon">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/ResearchGate_icon_SVG.svg" class="icon-img" alt="ResearchGate">
-          </span>
-          <a href="https://www.researchgate.net/profile/William-Kezerian" target="_blank" rel="noopener">ResearchGate</a>
-        </li>
+          <!-- ResearchGate -->
+          <li>
+            <span class="sidebar-icon">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/ResearchGate_icon_SVG.svg" class="icon-img" alt="ResearchGate">
+            </span>
+            <a href="https://www.researchgate.net/profile/William-Kezerian" target="_blank" rel="noopener">ResearchGate</a>
+          </li>
 
-        <!-- GitHub with silhouette logo -->
-        <li>
-          <span class="sidebar-icon">
-            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" class="icon-img" alt="GitHub">
-          </span>
-          <a href="https://github.com/williamkezerian" target="_blank" rel="noopener">GitHub</a>
-        </li>
+          <!-- GitHub -->
+          <li>
+            <span class="sidebar-icon">
+              <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" class="icon-img" alt="GitHub">
+            </span>
+            <a href="https://github.com/williamkezerian" target="_blank" rel="noopener">GitHub</a>
+          </li>
 
-        <li><span class="sidebar-icon">in</span><a href="https://www.linkedin.com/in/williamkezerian" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><span class="sidebar-icon">📄</span><a href="cv_6.pdf" target="_blank" rel="noopener">CV</a></li>
-      </ul>
+          <li><span class="sidebar-icon">in</span><a href="https://www.linkedin.com/in/williamkezerian" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><span class="sidebar-icon">📄</span><a href="cv_6.pdf" target="_blank" rel="noopener">CV</a></li>
+        </ul>
+      </div>
     </aside>
 
     <!-- RIGHT COLUMN -->
-    <section class="content">
+    <div class="content">
       <div class="intro-accent"></div>
-      <h1>Hi, I'm Will.</h1>
-      <p>I am a PhD student in the Department of Linguistics at the University of Pennsylvania. I recently completed my MA in Linguistic Studies at Syracuse University, where I was advised by Dr. Jaklin Kornfilt. My thesis used NLP methods to compare elicitations and natural usage of focus and complementation structures in Guadeloupean Creole, using data collected during NSF-sponsored fieldwork.</p>
-      <p>My research spans computational linguistics, French-based Creoles, language contact, syntax, and experimental methods. I'm interested in uses of NLP for documentation, bilingual education, and collaborative experimental linguistics.</p>
+      <h1>William J. Kezerian</h1>
+      <p class="tagline">Creole linguistics · Syntax · Computational linguistics</p>
 
-      <section class="section">
+      <div class="bio">
+        <p>I am a PhD student in the Department of Linguistics at the University of Pennsylvania. My research spans computational linguistics, French-based Creoles, language contact, syntax, and experimental methods. I'm interested in uses of NLP for documentation, bilingual education, and collaborative experimental linguistics.</p>
+        <p>I recently completed my MA in Linguistic Studies at Syracuse University, where I was advised by Dr. Jaklin Kornfilt. My thesis used NLP methods to compare elicitations and natural usage of focus and complementation structures in Guadeloupean Creole, using data collected during NSF-sponsored fieldwork.</p>
+      </div>
+
+      <!-- ========== RESEARCH ========== -->
+      <section class="section" id="research">
+        <h2>Research</h2>
+        <hr class="section-divider" />
+        <ul class="research-list">
+          <li>
+            <strong>Variation in French-based Creoles</strong>
+            <span>How speakers vary in their use of grammatical markers, currently focusing on complementizer <em>kè</em> in Guadeloupean Creole, comparing experimental judgments with spontaneous speech.</span>
+          </li>
+          <li>
+            <strong>Syntax of complementation and focus</strong>
+            <span>Clause boundaries, fronting, and focus constructions in Guadeloupean Creole, and what they reveal about Creole clause structure in comparative perspective.</span>
+          </li>
+          <li>
+            <strong>Computational methods for under-resourced languages</strong>
+            <span>Using NLP to support language documentation, corpus analysis of fieldwork data, and native-language education in Creole-speaking communities.</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ========== PUBLICATIONS ========== -->
+      <section class="section" id="publications">
         <h2>Publications</h2>
         <hr class="section-divider" />
-        <ul>
-          <li>Kezerian, W.<sup>1</sup>, Jeannot-Fourcaud, B., Barrière, I., &amp; Govain, R. (in revision). <em>Focus and fronting in Guadeloupean Creole: The role of complementation in focus.</em> In O. Duplâtre &amp; P.-Y. Modicom (Eds.), <em>Issues in the formal and functional typology of focus</em>. John Benjamins.</li>
-          <li>Kezerian, W.<sup>1</sup>, Wyner, L. A., Ansari, S., &amp; Yu, K. M. (2024). <em>Ye Olde French: Effect of Old and Middle French on SIGMORPHON-UniMorph shared task data</em>. In <em>Proceedings of the 21st SIGMORPHON Workshop on Computational Research in Phonetics, Phonology, and Morphology</em> (pp. 39–50). Mexico City, Mexico: Association for Computational Linguistics.</li>
+        <ul class="pub-list">
+          <li><strong>Kezerian, W.</strong>, Jeannot-Fourcaud, B., Barrière, I., &amp; Govain, R. (in revision). <em>Focus and fronting in Guadeloupean Creole: The role of complementation in focus.</em> In O. Duplâtre &amp; P.-Y. Modicom (Eds.), <em>Issues in the formal and functional typology of focus</em>. John Benjamins.
+            <!-- <span class="item-links"><a href="#">PDF</a></span> -->
+          </li>
+          <li><strong>Kezerian, W.</strong>, Wyner, L. A., Ansari, S., &amp; Yu, K. M. (2024). <em>Ye Olde French: Effect of Old and Middle French on SIGMORPHON-UniMorph shared task data</em>. In <em>Proceedings of the 21st SIGMORPHON Workshop on Computational Research in Phonetics, Phonology, and Morphology</em> (pp. 39–50). Mexico City, Mexico: Association for Computational Linguistics.
+            <!-- <span class="item-links"><a href="#">ACL Anthology</a></span> -->
+          </li>
         </ul>
-          <p class="section-note" style="font-size: 0.8em;"><sup>1</sup>First author</p>
       </section>
 
-      <section class="section">
+      <!-- ========== PRESENTATIONS ==========
+           To add slides: uncomment the item-links line under an entry
+           and replace # with the file path, e.g. slides/ciec-2026.pdf -->
+      <section class="section" id="presentations">
         <h2>Peer-Reviewed Conference Presentations</h2>
         <hr class="section-divider" />
-        <ul>
-          <li>Kezerian, W., Jeannot-Fourcaud, B., Barrière, I., &amp; Govain, R. "Complementizer kè Variation in Guadeloupean Creole: Experimental Judgments and Spontaneous Speech." To be presented at the <em>17th International Colloquium of Creole Studies</em>, Schœlcher, Martinique.</li>
-          <li>Kezerian, W., Jeannot-Fourcaud, B., Barrière, I., &amp; Govain, R. "Relative Attachment: Long-distance PP adjunct attachment in Guadeloupean Creole." Presented at the <em>Society for Pidgin and Creole Linguistics Winter Meeting 2026</em>, in conjunction with the <em>LSA 2026 Winter Meeting</em>, New Orleans, USA.</li>
-          <li>Kezerian, W., Tselioudis, V., Jeannot-Fourcaud, B., Barrière, I., &amp; Govain, R. "The Role of kè in Guadeloupean Creole Complementation: A comparative syntactic analysis." Presented at <em>Syntax of the World's Languages X</em>, University of Potsdam, Potsdam, Germany.</li>
-          <li>Kezerian, W., Tselioudis, V., Jeannot-Fourcaud, B., Barrière, I., &amp; Govain, R. "Focus and Fronting in Guadeloupean Creole: Examining the role of complementation in focus." Presented at the <em>SLE 2025 Workshop: Issues in the formal and functional typology of focus</em>, Université Bordeaux Montaigne, Bordeaux, France.</li>
-          <li>Kezerian, W., Wyner, L. A., Ansari, S., &amp; Yu, K. M. "Ye Olde French: Effect of Old and Middle French on SIGMORPHON-UniMorph shared task data." Presented at the <em>SIGMORPHON Workshop</em>, ACL 2024, Mexico City, Mexico.</li>
-        </ul>
+        <div class="dated">
+          <div class="year">2026</div>
+          <div><strong>Kezerian, W.</strong>, Jeannot-Fourcaud, B., Barrière, I., &amp; Govain, R. "Complementizer kè Variation in Guadeloupean Creole: Experimental Judgments and Spontaneous Speech." To be presented at the <em>17th International Colloquium of Creole Studies</em>, Schœlcher, Martinique.
+            <!-- <span class="item-links"><a href="#">Slides</a></span> -->
+          </div>
+
+          <div class="year">2026</div>
+          <div><strong>Kezerian, W.</strong>, Jeannot-Fourcaud, B., Barrière, I., &amp; Govain, R. "Relative Attachment: Long-distance PP adjunct attachment in Guadeloupean Creole." Presented at the <em>Society for Pidgin and Creole Linguistics Winter Meeting 2026</em>, in conjunction with the <em>LSA 2026 Winter Meeting</em>, New Orleans, USA.
+            <!-- <span class="item-links"><a href="#">Slides</a></span> -->
+          </div>
+
+          <div class="year">2025</div><!-- VERIFY YEAR -->
+          <div><strong>Kezerian, W.</strong>, Tselioudis, V., Jeannot-Fourcaud, B., Barrière, I., &amp; Govain, R. "The Role of kè in Guadeloupean Creole Complementation: A comparative syntactic analysis." Presented at <em>Syntax of the World's Languages X</em>, University of Potsdam, Potsdam, Germany.
+            <!-- <span class="item-links"><a href="#">Slides</a></span> -->
+          </div>
+
+          <div class="year">2025</div>
+          <div><strong>Kezerian, W.</strong>, Tselioudis, V., Jeannot-Fourcaud, B., Barrière, I., &amp; Govain, R. "Focus and Fronting in Guadeloupean Creole: Examining the role of complementation in focus." Presented at the <em>SLE 2025 Workshop: Issues in the formal and functional typology of focus</em>, Université Bordeaux Montaigne, Bordeaux, France.
+            <!-- <span class="item-links"><a href="#">Slides</a></span> -->
+          </div>
+
+          <div class="year">2024</div>
+          <div><strong>Kezerian, W.</strong>, Wyner, L. A., Ansari, S., &amp; Yu, K. M. "Ye Olde French: Effect of Old and Middle French on SIGMORPHON-UniMorph shared task data." Presented at the <em>SIGMORPHON Workshop</em>, ACL 2024, Mexico City, Mexico.
+            <!-- <span class="item-links"><a href="#">Slides</a></span> -->
+          </div>
+        </div>
       </section>
 
-      <section class="section">
-        <h2>Invited Talks</h2>
+      <!-- ========== TALKS ========== -->
+      <section class="section" id="talks">
+        <h2>Talks</h2>
         <hr class="section-divider" />
-        <ul>
-          <li>(2026) <em>Complementation in Guadeloupean Creole: An Experimental and Computational Account</em>. 4th Annual Linguistic Studies Research and Creative Scholarship Fest, Syracuse University, NY.</li>
-          <li>(2025) <em>Testing Clause Boundaries: Focus and Complementation in Guadeloupean Creole</em>. The Research Group on Creole Grammars (GRGC), Structures Formelles du Langage, Université Paris 8, France.</li>
-          <li>(2025) <em>Creole for the Classroom: Linguistic documentation and NLP in empowering native-language education in Guadeloupe</em>. VII International Summer School "Language Policy and Language Planning: Bilingual minds and translingual practices in multicultural contexts," University for Foreigners of Siena, Siena, Italy.</li>
-          <li>(2025) <em>NLP in Language Documentation: A case study on Guadeloupean Creole focus and fronting</em>. Linguistic Studies Program Research and Creative Scholarship Fest, Syracuse University, NY.</li>
-          <li>(2025) <em>Linguistic interaction in Guadeloupean Creole oral histories: Call and response to facilitate the tradition's survival</em>. French Graduate Colloquium, Syracuse University, NY.</li>
-          <li>(2024) <em>Subordinate clauses in Guadeloupean Creole: Complementizer dropping, NP/VP focus, and PP focus attachment</em>. NSF-IRES Conference, INSPE, Pointe-à-Pitre, Guadeloupe.</li>
-        </ul>
+
+        <h3>Invited Talks</h3>
+        <div class="dated">
+          <div class="year">2025</div>
+          <div><em>Testing Clause Boundaries: Focus and Complementation in Guadeloupean Creole</em>. The Research Group on Creole Grammars (GRGC), Structures Formelles du Langage, Université Paris 8, France.
+            <!-- <span class="item-links"><a href="#">Slides</a></span> -->
+          </div>
+
+          <div class="year">2025</div>
+          <div><em>Creole for the Classroom: Linguistic documentation and NLP in empowering native-language education in Guadeloupe</em>. VII International Summer School "Language Policy and Language Planning: Bilingual minds and translingual practices in multicultural contexts," University for Foreigners of Siena, Siena, Italy.
+            <!-- <span class="item-links"><a href="#">Slides</a></span> -->
+          </div>
+
+          <div class="year">2025</div>
+          <div><em>Linguistic interaction in Guadeloupean Creole oral histories: Call and response to facilitate the tradition's survival</em>. French Graduate Colloquium, Syracuse University, NY.
+            <!-- <span class="item-links"><a href="#">Slides</a></span> -->
+          </div>
+        </div>
+
+        <h3>Other Talks</h3>
+        <div class="dated">
+          <div class="year">2026</div>
+          <div><em>Complementation in Guadeloupean Creole: An Experimental and Computational Account</em>. 4th Annual Linguistic Studies Research and Creative Scholarship Fest, Syracuse University, NY.
+            <!-- <span class="item-links"><a href="#">Slides</a></span> -->
+          </div>
+
+          <div class="year">2025</div>
+          <div><em>NLP in Language Documentation: A case study on Guadeloupean Creole focus and fronting</em>. Linguistic Studies Program Research and Creative Scholarship Fest, Syracuse University, NY.
+            <!-- <span class="item-links"><a href="#">Slides</a></span> -->
+          </div>
+
+          <div class="year">2024</div>
+          <div><em>Subordinate clauses in Guadeloupean Creole: Complementizer dropping, NP/VP focus, and PP focus attachment</em>. NSF-IRES Conference, INSPE, Pointe-à-Pitre, Guadeloupe.
+            <!-- <span class="item-links"><a href="#">Slides</a></span> -->
+          </div>
+        </div>
       </section>
-    </section>
+
+      <!-- ========== TEACHING ========== -->
+      <section class="section" id="teaching">
+        <h2>Teaching</h2>
+        <hr class="section-divider" />
+        <div class="dated">
+          <div class="year">2026</div>
+          <div><strong>Instructor of Record</strong>, FRENCH 102, Syracuse University</div>
+
+          <div class="year">2025</div>
+          <div><strong>Instructor of Record</strong>, FRENCH 102, Syracuse University</div>
+
+          <div class="year">2025</div>
+          <div><strong>Instructor of Record</strong>, FRENCH 201, Syracuse University</div>
+
+          <div class="year">2023–24</div>
+          <div><strong>Instructor</strong>, Advanced American Culture and English Language, UMass Amherst</div>
+
+          <div class="year">2022–23</div>
+          <div><strong>Instructor</strong>, Intermediate American Culture and English Language, UMass Amherst</div>
+
+          <div class="year">2022–24</div>
+          <div><strong>ESL Tutor</strong>, UMass Amherst ESL Program</div>
+
+          <div class="year">2019</div>
+          <div><strong>EFL Teaching Assistant</strong>, Lycée Dumont d’Urville, Laplace, Caen, France</div>
+        </div>
+      </section>
+
+      <!-- ========== SERVICE ========== -->
+      <section class="section" id="service">
+        <h2>Service</h2>
+        <hr class="section-divider" />
+        <div class="dated">
+          <div class="year">2026–27</div>
+          <div><strong>Speaker Series Coordinator</strong>, Department of Linguistics, University of Pennsylvania</div>
+        </div>
+      </section>
+    </div>
   </main>
 </body>
 </html>
-
-
-
-
-
 
